@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/rooms.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <title>MakersBnB</title>
+</head>
+<body>
+  <div class="nav-bar">
+  <div class="logo-container">
+  <a href="/"><img src="/makers.png" alt="Logo for the MakersBnB"></a>
+  </div>
+  <div class="menu-container">
+    <ul>
+      <li><a href="/rooms">Spaces</a></li>
+      <li><a href="/requests">Requests</a></li>
+      <li><a href="/sign_out">Sign Out</a></li>
+    </ul>
+  </div>
+</div>
+  <h1>Welcome, <%= @user.name %>!</h1>
+  <h3>Choose dates to see the available locations: </h3>
+  <form action="/rooms" method="post">
+    <label for="from"><b>From</b></label>
+    <input type="date" id="from" name="from">
+
+    <label for="to"><b>To</b></label>
+    <input type="date" id="to" name="to">
+
+    <input type="submit" class="rooms_button" value="See rooms available">
+    <button class="list_button"><a href="/list_a_space" style="text-decoration: none; color: #27296d;">List a space</a></button>
+  </form>
+  <div class="listing">
+
+  <% if @rooms == "Sorry, there is no rooms available within the range selected." %>
+    <hr>
+    <hr>
+    <h2><%= @rooms %></h2> <%# message for no rooms available %>
+
+  <% else %>
+
+    <% unless @from.nil? %> <%# start of unless statement %>
+      <hr>
+
+      <h3>Availabilities <%= @same_from_and_to ? "on" : "from" %> <%= Date.parse(@from).strftime("%A %d %B %Y") %> 
+
+      <% unless @same_from_and_to || @to_is_empty %> <%# if statement inside an unless statement %>
+      to <%= Date.parse(@to).strftime("%A %d %B %Y") %>
+      <% end %>
+
+      - <%= @rooms.length %> result<%= @rooms.length > 1 ? "s" : "" %>
+
+      </h3>
+
+    <% end %> <%# end of unless statement %>
+
+    <% @rooms.each do |room| %> <%# start of loop %>
+
+      <% if room.user_id.to_i == @session_id %>
+        <% next %>
+      <% else %>
+
+      <a href="/room/<%= room.id %>">
+      <div class="room_listing">
+        <div class="room_info">
+          <h3><%= room.name %></h3>
+          <p><%= room.description %></p>
+          <hr />
+          <p class="price">£<%= room.price %> / night</p>
+          <hr />
+          <button class="list_button"><a href="/room/<%= room.id %>" style="text-decoration: none; color: #27296d;">See more</a></button>
+        </div>
+        <div class="room_image">
+          <img src="/room_pics/<%= room.id %>.jpg" alt="<%= room.name %>">
+        </div>
+      </div>
+      </a>
+      <% end %>
+    <% end %> <%# end of loop %>
+   <% end %> <%# end of if statement %>
+
+  </div>
+</body>
+</html>
+

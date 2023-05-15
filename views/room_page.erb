@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/room_page.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <title>MakersBnB</title>
+</head>
+<body>
+  <div class="nav-bar">
+  <div class="logo-container">
+  <a href="/"><img src="/makers.png" alt="Logo for the MakersBnB"></a>
+  </div>
+  <div class="menu-container">
+    <ul>
+      <li><a href="/rooms">Spaces</a></li>
+      <li><a href="/requests">Requests</a></li>
+      <li><a href="/sign_out">Sign Out</a></li>
+    </ul>
+  </div>
+</div>
+<h2><%= @message unless @message.nil? %></h2>
+<div class="room_listing">
+  <div class="room_info">
+    <h3><%= @room.name %></h3>
+    <p><%= @room.description %></p>
+    <hr />
+    <p class="price">£<%= @room.price %> / night</p>
+    <hr />
+
+    <form action="/room/<%= @id %>" method="POST">
+    <p>Select the day:</p><br>
+    <% @days_hash.each do |k, v| %>
+      <% if v == 1 %>
+        <label for="<%= k %>"><%= k %>/<%= @month %></label>
+        <input type="radio" id="<%= k %>" value="<%= k %>" name="request_date" required><br>
+      <% end %>
+    <% end %>
+    <button type="submit">Request the booking</button>
+    <p><a href="/rooms" style="text-decoration: none;">← Go Back</a></p>
+    </form>
+  </div>
+  <div class="room_image">
+    <img src="/room_pics/<%= @room.id %>.jpg" alt="<%= @room.name %>">
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/list_a_space.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>List a space on MakersBnB</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="logo-container">
+      <a href="/"><img src="makers.png" alt="Logo for the MakersBnB"></a>
+      </div>
+      <div class="menu-container">
+        <ul>
+          <li><a href="/rooms">Spaces</a></li>
+          <li><a href="/requests">Requests</a></li>
+          <li><a href="/sign_out">Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+    <p>Add your space:</p>
+    
+    <form action="/list_a_space" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+
+      <label for="price">Price per night:</label>
+      <input type="text" id="price" name="price" required>
+
+      <label for="available_from">Available from: (yyyy/mm/dd)</label>
+      <input type="text" id="available_from" name="available_from" required>
+
+      <label for="available_to">Available to: (yyyy/mm/dd)</label>
+      <input type="text" id="available_to" name="available_to" required>
+
+      <button type="submit">Add space</button>
+    </form>
+    <p><%= @message unless @message.nil? %></p>
+  </body>
+</html>

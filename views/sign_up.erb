@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/sign_up.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <title>MakersBnB</title>
+</head>
+<body>
+  <div class="nav-bar">
+    <div class="logo-container">
+      <a href="/"><img src="/makers.png" alt="Logo for the MakersBnB"></a>
+    </div>
+    <div class="menu-container">
+    </div>
+  </div>
+    <% if @error_message %>
+        <div><%= @error_message %></div>
+      <% end %>
+    <div class='form' style='justify-content: center;
+  text-align: center;'>
+    <form method="POST" action="/new_user" class="sign_up_form">
+      <label>Enter Name: </label>
+      <div class="sign_in_field">
+        <input type="text" name="name" required/><br />
+      </div>
+      <label>Enter Email: </label>
+      <div class="sign_in_field">
+      
+      <input type="text" name="email" required/><br />
+      </div>
+      <label>Create Password: </label>
+      <div class="sign_in_field">
+        <input type="password" name="password" required/><br />
+      </div>
+      <br >
+      <input class='list_button' type="submit" value="Sign up" required/>
+    </form>
+    <p>Already have an account? Please <a href="/sign_in">Sign in</a>.</p>
+    </div>
+
+
+ 
+      <img src="/room_pics/border1.png" alt="Outline" style= 'width: 100%;'>
+
+    
+  </body>
+</html> 

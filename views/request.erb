@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/list_a_space.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>MakersBnB</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="logo-container">
+      <a href="/"><img src="/makers.png" alt="Logo for the MakersBnB"></a>
+      </div>
+      <div class="menu-container">
+        <ul>
+          <li><a href="/rooms">Spaces</a></li>
+          <li><a href="/requests">Requests</a></li>
+          <li><a href="/sign_out">Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+    <h1><%= @room.name %></h1>
+    <h3>From: <%= @user.name%></h3>
+    <h3>Email: <%= @user.email%></h3>
+    <h3>Date requested: <%= Date.parse(@date.date).strftime("%A %d %B %Y") %></h3>
+    <form action="/confirm_request/<%= @booking.id %>" method="POST">
+      <input type="submit" value="Confirm request">
+    </form>
+    <form action="/deny_request/<%= @booking.id %>" method="POST">
+      <input type="submit" value="Deny request">
+    </form>
+  </body>
+</html>

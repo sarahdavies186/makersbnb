@@ -1,0 +1,129 @@
+body {
+  font-family: "Roboto Mono", sans-serif;
+  color: #27296d;
+  padding: 40px;
+}
+
+h3 {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px;
+}
+
+.logo-container {
+  width: 120px;
+  height: 120px;
+}
+
+.logo-container img {
+  margin-left: 20px;
+  max-height: 120px;
+  width: auto;
+}
+
+.menu-container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu-container li {
+  margin-right: 40px;
+}
+
+.menu-container a {
+  text-decoration: none;
+  color: #27296d;
+  font-weight: bold;
+  font-family: "Roboto Mono", sans-serif;
+}
+
+.menu-container a:hover {
+  color: #a393eb;
+  text-decoration: underline;
+  text-decoration-color: #a393eb;
+}
+
+.rooms_button {
+  color: #27296d;
+  background-color: #a393eb;
+  padding: 10px;
+  border-style: solid;
+  border-color: #27296d;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.rooms_button:hover {
+  background-color: #f5c7f7;
+  color: #27296d;
+}
+
+.list_button {
+  color: #27296d;
+  background-color: #a393eb;
+  padding: 10px;
+  border-style: solid;
+  border-color: #27296d;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  float: right;
+  
+}
+
+.list_button:hover {
+  background-color: #f5c7f7;
+  color: #27296d;
+}
+
+.room_listing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border-style: solid;
+  border-color: #27296d;
+  border-width: 2px;
+  border-radius: 10px;
+  height: 500px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.room_info {
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 30%;
+}
+
+hr {
+  width: 100%;
+  color: #5e63b6;
+}
+
+.price {
+  color: #5e63b6;
+}
+
+.room_image {
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}

@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/requests.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>List a space on MakersBnB</title>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <div class="logo-container">
+        <a href="/"><img src="makers.png" alt="Logo for the MakersBnB"></a>
+      </div>
+      <div class="menu-container">
+        <ul>
+          <li><a href="/rooms">Spaces</a></li>
+          <li><a href="/requests">Requests</a></li>
+          <li><a href="/sign_out">Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+    <h1>Requests</h1>
+    <div class="parent-div">
+    <div class="child-div">
+    <% if @bookings.empty? %>
+    <h2>You haven't made any request yet.</h2>
+    <% else %>
+    <h2>Request I've made</h2>
+    <% @bookings.each do |booking|  %>
+    <div>
+      <h3><%= @availability.find_by_id(booking.availability_id).date %></h3>
+      <h5><%= @room_repo.find(booking.room_id).name %></h5>
+      <h5><%= @room_repo.find(booking.room_id).description %></h5>
+      <h5><%= booking.status %></h5>
+    </div>
+    <% end %>
+    <% end %>
+    </div>
+    <div class="child-div">
+
+    
+    <% if @bookings_received.empty? %>
+      <h2>You haven't received any request yet.</h2>
+    <% else %>
+      <h2>Request I've received</h2>
+    <% @bookings_received.each do |booking|  %>
+    <div>
+      <h3>
+      <% if booking.status == "Pending"%>
+        <a href="/request/<%= booking.id %>"><%= @availability.find_by_id(booking.availability_id).date %></a>
+      <% else %>
+        <%= @availability.find_by_id(booking.availability_id).date %>
+      <% end %>
+      </h3>
+      <h5><%= @room_repo.find(booking.room_id).name %></h5>
+      <h5><%= @room_repo.find(booking.room_id).description %></h5>
+      <h5><%= @user_repo.find(booking.user_id).name %></h5>
+      <h5><%= booking.status %></h5>
+    </div>
+    <% end %>
+    <% end %>
+    </div>
+    </div>
+    <br>
+    <a href="/rooms">Back to Home Page</a>
+  </body>
+</html>

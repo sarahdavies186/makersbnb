@@ -1,8 +1,10 @@
-# MakersBnB Project Seed
+# MakersBnB Project 
 
-This repo contains the seed codebase for the MakersBnB project in Ruby (using Sinatra and RSpec).
+This is a group project created as part of our first engineering project on the Makers Bootcamp. 
 
-Someone in your team should fork this seed repo to their Github account. Everyone in the team should then clone this fork to their local machine to work on it.
+The program uses Ruby, Sinatra, PostgreSQL and RSpec for testing. 
+
+The website allows users to sign up, sign in, search dates for a space, book a space for one night as a user, confirm or decline a booking as a host, and upload a new space.
 
 ## Setup
 
@@ -16,3 +18,10 @@ rspec
 # Run the server (better to do this in a separate terminal).
 rackup
 ```
+## Contributors 
+
+- Chang Wynn
+- Konrad Duński
+- Sarah Davies
+- Rebecca Monica Amanfo
+- Destin Cleo Kouamba 

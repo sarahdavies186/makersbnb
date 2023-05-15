@@ -25,3 +25,5 @@ rackup
 - Sarah Davies
 - Rebecca Monica Amanfo
 - Destin Cleo Kouamba 
+
+Please note that this repo has been cloned from the original, so therefore does not track the original commits and work progress. 
